@@ -48,10 +48,16 @@ public class PlacerBet : MonoBehaviour
     public void AddValue(float bet)
     {
         betValue += bet;
+        UpdateText();
     }
 
     public void MinusValue(float bet)
     {
-        betValue -= bet;
+
+        if (betValue - bet > 0.1)
+        {
+            betValue -= bet;
+            UpdateText();
+        }
     }
 }
