@@ -1,15 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using TMPro;
 using UnityEngine;
 
-public class CurrencyBalance : MonoBehaviour
+public class PlacerBet : MonoBehaviour
 {
-    [SerializeField] private float currencyValue;
+    [SerializeField] private float betValue = 0.3f;
     [SerializeField] private TextMeshProUGUI textCurrencyValue;
-    public static CurrencyBalance Instance
+    
+    public static PlacerBet Instance
     {
         get;
         private set;
@@ -26,13 +26,17 @@ public class CurrencyBalance : MonoBehaviour
             Instance = this;
         }
     }
-    
-    
-    
-    
-    private void UpdateText()
+
+    public float CurrentBet()
     {
-        textCurrencyValue.text = currencyValue.ToString("F2",CultureInfo.InvariantCulture);
+        return betValue;
+    }
+    
+    
+    
+    public void UpdateText()
+    {
+        textCurrencyValue.text = betValue.ToString("F2", CultureInfo.InvariantCulture);
     }
 
     private void Start()
@@ -40,20 +44,14 @@ public class CurrencyBalance : MonoBehaviour
         UpdateText();
     }
 
+    // another buttons contrl
     public void AddValue(float bet)
     {
-        currencyValue += bet;
-        UpdateText();
+        betValue += bet;
     }
 
     public void MinusValue(float bet)
     {
-        currencyValue -= bet;
-        UpdateText();
-    }
-
-    public bool TrueCheck(float minusCurrencyAvailable)
-    {
-        return ((currencyValue - minusCurrencyAvailable) > 0);
+        betValue -= bet;
     }
 }

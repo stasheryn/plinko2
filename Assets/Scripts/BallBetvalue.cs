@@ -12,8 +12,18 @@ public class BallBetvalue : MonoBehaviour
     {
         return valueBet;
     }
+    public void SetBetValue(float newBetValue)
+    {
+        valueBet = newBetValue;
+    }
+    
     public Color GetBetColor()
     {
         return sprite.color;
+    }
+
+    public void SetColor(Color _color)
+    {
+        sprite.color = _color;
     }
 }

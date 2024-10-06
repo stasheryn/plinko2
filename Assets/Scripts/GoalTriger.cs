@@ -23,11 +23,13 @@ public class GoalTriger : MonoBehaviour
         {
             // add new value of started bet
             var ball = other.GetComponent<BallBetvalue>();
+            ball.SetBetValue(pointMultiplier * ball.GetBetValue());
             var bet = ball.GetBetValue();
             var colorBet = ball.GetBetColor();
-            CurrencyBalance.AddValue(bet * pointMultiplier);
+            CurrencyBalance.Instance.AddValue(bet * pointMultiplier);
             // add button to history
-            SpawnerButtonhistory.Instance.SpawnButtonHistory(colorBet ,bet.ToString("F2" ,CultureInfo.InvariantCulture));
+            SpawnerButtonhistory.Instance.SpawnButtonHistory(colorBet,
+                bet.ToString("F2", CultureInfo.InvariantCulture));
             //
             transform.DOPunchScale(Vector3.one * 0.3f, 1f);
             //
@@ -53,7 +55,7 @@ public class GoalTriger : MonoBehaviour
     {
         SetupTextNumb();
     }
-    
+
     // format string
     private String FormatString1(float number)
     {

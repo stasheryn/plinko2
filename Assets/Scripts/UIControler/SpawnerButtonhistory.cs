@@ -33,6 +33,8 @@ public class SpawnerButtonhistory : MonoBehaviour
         inst.SetTextAndImg(color, value);
         // DoScale тут
         inst.transform.DOPunchScale(Vector3.one * 0.09f, 0.4f);
+        // Дод в список який очищується кнопкою
+        DeleteHistory.Instance.listOfHistory.Add(inst);
 
     }
 }
