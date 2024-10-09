@@ -35,18 +35,11 @@ public class MenuHide : MonoBehaviour
         toHide.SetActive(!toHide.activeSelf);
         if (toHide.activeSelf)
         {
-            //h Max
-            //objRectToResize.sizeDelta = new Vector2(objRectToResize.sizeDelta.x, heightMax);
             objRectToResize.offsetMin = offSetToSee;
         }
         else
         {
-           // objRectToResize.sizeDelta = new Vector2(objRectToResize.sizeDelta.x, objRectToResize.sizeDelta.y + heightMin);
-            
-            
-            
-           // objRectToResize.rect = new Rect(oRect);
-           //objRectToResize.
+           
            objRectToResize.offsetMin = new Vector2(objRectToResize.offsetMin.x,objRectToResize.offsetMin.y + heightMin);
         }
     }
